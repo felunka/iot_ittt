@@ -101,6 +101,7 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
+    mqtt-rails (1.0.1)
     msgpack (1.4.2)
     nio4r (2.5.8)
     nokogiri (1.12.5)
@@ -221,6 +222,7 @@ DEPENDENCIES
   haml (~> 5.1)
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  mqtt-rails
   pg (~> 0.18.4)
   pry-rails
   puma (~> 4.1)

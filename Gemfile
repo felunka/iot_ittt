@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'haml', '~> 5.1'
 gem 'simple_form'
 
+gem 'mqtt-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

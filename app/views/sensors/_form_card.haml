@@ -1,0 +1,18 @@
+.card.mt-3
+  %h5.card-header.d-flex.justify-content-between.align-items-center
+    Sensor
+    .row
+      - if @sensor.id.present?
+        .col.p-0
+          = button_to 'Delete', sensor_path(@sensor), class: 'btn btn-danger', method: :delete
+      .col
+        = button_to 'Cancel', sensors_path, class: 'btn btn-secondary', method: :get
+
+  .card-body
+    = simple_form_for @sensor do |f|
+      = f.input :name
+      = f.input :sensor_type, collection: Sensor.sensor_types.symbolize_keys.keys, include_blank: false, include_hidden: false
+      = f.input :topic
+      = f.input :url
+      = f.input :interval
+      = f.submit 'Save', class: 'btn btn-primary mt-2'

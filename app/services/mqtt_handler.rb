@@ -6,7 +6,7 @@ class MqttHandler
         value = Float(message.payload)
         SensorMesurement.create sensor: sensor, value: message.payload
       rescue ArgumentError
-
+        Rails.logger.debug "Invaid value for MQTT message on topic '#{message.topic}': #{message.payload}"
       end
     end
   end

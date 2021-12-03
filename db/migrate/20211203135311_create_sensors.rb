@@ -2,7 +2,7 @@ class CreateSensors < ActiveRecord::Migration[6.0]
   def change
     create_table :sensors do |t|
       t.string :name
-      t.integer :type
+      t.integer :sensor_type
       t.string :topic
       t.string :url
       t.integer :interval

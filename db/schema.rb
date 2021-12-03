@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_135347) do
 
   create_table "sensors", force: :cascade do |t|
     t.string "name"
-    t.integer "type"
+    t.integer "sensor_type"
     t.string "topic"
     t.string "url"
     t.integer "interval"

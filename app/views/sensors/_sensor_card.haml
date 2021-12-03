@@ -1,0 +1,13 @@
+.col.mb-4
+  .card
+    .card-body
+      %h5.card-title
+        = sensor.name
+      %h6.card-subtitle.mb-2.text-muted
+        = sensor.description
+      = link_to edit_sensor_path(sensor), class: 'card-link' do
+        %i.fas.fa-edit
+        Edit
+      = link_to sensor_sensor_mesurements_path(sensor), class: 'card-link' do
+        %i.fas.fa-search
+        Show mesurements

@@ -1,5 +1,5 @@
 class Sensor < ApplicationRecord
-  has_many :sensor_mesurements
+  has_many :sensor_measurements
 
   enum sensor_type: {
     mqtt: 0,
@@ -12,5 +12,9 @@ class Sensor < ApplicationRecord
     elsif rest?
       "REST on url: #{url}"
     end
+  end
+
+  def most_recent_measurement
+
   end
 end

@@ -1,6 +1,6 @@
 .card.mt-3
   %h5.card-header
-    = "Mesurements for #{@sensor.name}"
+    = "Measurement for #{@sensor.name}"
   .table-responsive
     %table.table
       %tr
@@ -9,9 +9,9 @@
         %th
           Time
         %th
-      - @sensor.sensor_mesurements.each do |mesurement|
+      - @sensor.sensor_measurements.each do |measurement|
         %tr
           %td
-            = mesurement.value
+            = measurement.value
           %td
-            = I18n.l mesurement.created_at
+            = I18n.l measurement.created_at

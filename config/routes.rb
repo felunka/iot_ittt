@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'sensors#index'
 
   resources :sensors do
-    resources :sensor_mesurements, only: [:index, :show] 
+    resources :sensor_measurements, only: [:index, :show] 
   end
 
   mount ActionCable.server => '/cable'

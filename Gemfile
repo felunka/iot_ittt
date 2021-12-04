@@ -28,7 +28,13 @@ gem 'jbuilder', '~> 2.7'
 gem 'haml', '~> 5.1'
 gem 'simple_form'
 
+# For MQTT sensors
 gem 'mqtt-rails'
+
+# For requesting and parsing REST sensors
+gem 'rest-client'
+gem 'jsonpath', '~> 0.5.8'
+gem 'whenever', require: false
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

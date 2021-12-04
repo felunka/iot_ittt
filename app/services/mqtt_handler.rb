@@ -4,7 +4,7 @@ class MqttHandler
     if (sensor = Sensor.find_by(topic: message.topic))
       begin
         value = Float(message.payload)
-        mesurement = SensorMeasurement.create sensor: sensor, value: message.payload
+        mesurement = SensorMeasurement.create sensor: sensor, value: value
 
         ActionCable.server.broadcast 'measurements',
           sensor_id: sensor.id,

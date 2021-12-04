@@ -15,4 +15,5 @@
       = f.input :topic, hint: 'Only for MQTT'
       = f.input :url, hint: 'Only for REST'
       = f.input :interval, hint: 'Only for REST, in minutes'
+      = f.input :json_path, hint: 'Only for REST. This path will be used to find the correct value in the result json'
       = f.submit 'Save', class: 'btn btn-primary mt-2'

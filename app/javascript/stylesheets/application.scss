@@ -1,1 +1,46 @@
 @import '~bootstrap/scss/bootstrap';
+
+@-o-keyframes highlightBg {
+  0% {
+    color: black
+  }
+  50% {
+    color: #198754
+  }
+  to {
+    color: black
+  }
+}
+
+@-webkit-keyframes highlightBg {
+  0% {
+    color: black
+  }
+  50% {
+    color: #198754
+  }
+  to {
+    color: black
+  }
+}
+
+@keyframes highlightBg {
+  0% {
+    color: black
+  }
+  50% {
+    color: #198754
+  }
+  to {
+    color: black
+  }
+}
+
+.highlight {
+  -webkit-animation: highlightBg 1s linear;
+  -o-animation: highlightBg 1s linear;
+  animation: highlightBg 1s linear;
+  -webkit-animation-iteration-count: 2;
+  -o-animation-iteration-count: 2;
+  animation-iteration-count: 2
+}

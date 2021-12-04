@@ -1,12 +1,12 @@
 .col.mb-4
-  .card
+  .card.sensor-card{data: {sensor_id: sensor.id}}
     .card-body
       %h5.card-title
         = sensor.name
       %h6.card-subtitle.mb-2.text-muted
         = sensor.description
-      %p.card-text
-        = "#{sensor.name}"
+      %p.card-text.sensor-value
+        = sensor.most_recent_measurement.value_with_text
       = link_to edit_sensor_path(sensor), class: 'card-link' do
         %i.fas.fa-edit
         Edit

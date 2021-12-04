@@ -15,6 +15,6 @@ class Sensor < ApplicationRecord
   end
 
   def most_recent_measurement
-
+    sensor_measurements.order(:created_at).last
   end
 end

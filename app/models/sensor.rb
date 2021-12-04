@@ -6,6 +6,11 @@ class Sensor < ApplicationRecord
     rest: 1
   }
 
+  validates :name, presence: true
+  validates :topic, presence: true, if: :mqtt?
+  validates :url, presence: true, if: :rest?
+  validates :interval, presence: true, if: :rest?
+
   def description
     if mqtt?
       "MQTT on topic: #{topic}"

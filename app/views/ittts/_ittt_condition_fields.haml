@@ -1,0 +1,15 @@
+.nested-fields
+  .card.mt-3
+    .card-body
+      = link_to_remove_association f, class: 'float-end text-danger' do
+        %i.fa.fa-trash-alt
+      .d-flex.align-items-center.justify-content-between
+        .col.p-1
+          = f.association :sensor_1
+        .col.p-1
+          = f.input :operation, collection: ItttCondition.operations.symbolize_keys.keys, include_blank: false, include_hidden: false
+        .col.p-1
+          = f.association :sensor_2
+          .text-center
+            or
+          = f.input :comparison_value

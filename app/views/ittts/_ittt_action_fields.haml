@@ -1,0 +1,7 @@
+.nested-fields
+  .card.mt-3
+    .card-body
+      = link_to_remove_association f, class: 'float-end text-danger' do
+        %i.fa.fa-trash-alt
+      = f.input :topic
+      = f.input :message

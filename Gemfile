@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'haml', '~> 5.1'
 gem 'simple_form'
+gem 'cocoon'
 
 # For MQTT sensors
 gem 'mqtt-rails'

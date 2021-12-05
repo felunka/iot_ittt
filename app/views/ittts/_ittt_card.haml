@@ -1,0 +1,10 @@
+.col.mb-4
+  .card
+    .card-body
+      %h5.card-title
+        = ittt.name
+
+      = link_to edit_ittt_path(ittt), class: 'card-link' do
+        %i.fas.fa-edit
+        Edit
+

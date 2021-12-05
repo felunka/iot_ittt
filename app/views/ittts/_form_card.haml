@@ -1,0 +1,25 @@
+.card.mt-3
+  .card-header
+    Ittt
+
+  .card-body
+    = simple_form_for @ittt do |f|
+      = f.input :name
+      .alert.alert-primary.my-3
+        Define as many conditions as you need. You can compare sensor values to other sensor values or static values
+      = f.fields_for :ittt_conditions do |condition|
+        = render 'ittt_condition_fields', f: condition
+      .links
+        = link_to_add_association f, :ittt_conditions, class: 'btn btn-primary mt-3' do
+          %i.fas.fa-plus
+          Add condition
+      .alert.alert-primary.my-3
+        Define actions that should be triggered if all conditions return true
+      = f.fields_for :ittt_actions do |action|
+        = render 'ittt_action_fields', f: action
+      .links
+        = link_to_add_association f, :ittt_actions, class: 'btn btn-primary mt-3' do
+          %i.fas.fa-plus
+          Add action
+
+      = f.submit class: 'btn btn-primary mt-3 float-end'

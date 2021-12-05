@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_04_111234) do
+ActiveRecord::Schema.define(version: 2021_12_04_150009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ittt_actions", force: :cascade do |t|
+    t.bigint "ittt_id", null: false
+    t.string "topic"
+    t.string "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ittt_id"], name: "index_ittt_actions_on_ittt_id"
+  end
+
+  create_table "ittt_conditions", force: :cascade do |t|
+    t.bigint "ittt_id", null: false
+    t.bigint "sensor_1_id", null: false
+    t.bigint "sensor_2_id"
+    t.float "comparison_value"
+    t.integer "operation", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ittt_id"], name: "index_ittt_conditions_on_ittt_id"
+    t.index ["sensor_1_id"], name: "index_ittt_conditions_on_sensor_1_id"
+    t.index ["sensor_2_id"], name: "index_ittt_conditions_on_sensor_2_id"
+  end
+
+  create_table "ittts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "sensor_measurements", force: :cascade do |t|
     t.bigint "sensor_id", null: false
@@ -34,5 +62,9 @@ ActiveRecord::Schema.define(version: 2021_12_04_111234) do
     t.string "json_path"
   end
 
+  add_foreign_key "ittt_actions", "ittts"
+  add_foreign_key "ittt_conditions", "ittts"
+  add_foreign_key "ittt_conditions", "sensors", column: "sensor_1_id"
+  add_foreign_key "ittt_conditions", "sensors", column: "sensor_2_id"
   add_foreign_key "sensor_measurements", "sensors"
 end

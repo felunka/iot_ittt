@@ -1,0 +1,9 @@
+.card.mt-3
+  %h5.card-header.d-flex.justify-content-between.align-items-center
+    Ittts
+    = button_to 'Add', new_ittt_path, class: 'btn btn-primary', method: :get
+
+  .card-body
+    .row.row-cols-1.row-cols-sm-2.row-cols-md-3
+      - @ittts.each do |ittt|
+        = render partial: 'ittt_card', locals: {ittt: ittt}

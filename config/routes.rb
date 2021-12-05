@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :sensors do
     resources :sensor_measurements, only: [:index, :show] 
   end
+  resources :ittts
 
   mount ActionCable.server => '/cable'
 end

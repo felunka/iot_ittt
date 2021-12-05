@@ -1,5 +1,5 @@
 class Sensor < ApplicationRecord
-  has_many :sensor_measurements
+  has_many :sensor_measurements, dependent: :destroy
 
   enum sensor_type: {
     mqtt: 0,

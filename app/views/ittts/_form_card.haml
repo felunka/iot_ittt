@@ -5,6 +5,7 @@
   .card-body
     = simple_form_for @ittt do |f|
       = f.input :name
+      = f.input :interval, hint: 'In minutes'
       .alert.alert-primary.my-3
         Define as many conditions as you need. You can compare sensor values to other sensor values or static values
       = f.fields_for :ittt_conditions do |condition|

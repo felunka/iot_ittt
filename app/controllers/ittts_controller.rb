@@ -9,7 +9,6 @@ class ItttsController < ApplicationController
 
   def create
     @ittt = Ittt.new permit(params)
-    byebug
     if @ittt.save
       flash[:success] = 'Ittt created'
       redirect_to action: 'index'

@@ -14,6 +14,8 @@ import "../stylesheets/application";
 
 import "@fortawesome/fontawesome-free/css/all"
 
+import "chartkick/chart.js"
+
 document.addEventListener("turbolinks:load", function() {
   $(function () {
     $('[data-bs-toggle="tooltip"]').tooltip({

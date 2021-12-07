@@ -20,5 +20,6 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.minute do
-  rake "rest_sensors:update_mesurements"
+  rake 'rest_sensors:update_mesurements'
+  rake 'ittt_actions:check'
 end

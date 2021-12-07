@@ -11,7 +11,8 @@ namespace :ittt_actions do
       if ittt.evaluate_conditions
         ittt.ittt_actions.each do |action|
           begin
-            MqttClient.publish(action.topic, action.message, false, 1)
+            MqttClient::Connection.publish action.topic, action.message
+            MqttClient::Connection.loop_write
           rescue NameError
             Rails.logger.debug 'MqttClient not defined'
           end

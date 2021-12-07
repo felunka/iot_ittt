@@ -1,4 +1,7 @@
-.card.mt-3
+.card.my-3
+  = line_chart @sensor.sensor_measurements.limit(50).map{|m| [m.created_at, m.value]}.to_h
+
+.card.mb-3
   %h5.card-header
     = "Measurement for #{@sensor.name}"
   .table-responsive
@@ -9,7 +12,7 @@
         %th
           Time
         %th
-      - @sensor.sensor_measurements.each do |measurement|
+      - @sensor.sensor_measurements.limit(50).each do |measurement|
         %tr
           %td
             = measurement.value

@@ -1,5 +1,7 @@
 # IoT_ittt
 
+[![CD](https://github.com/felunka/iot_ittt/actions/workflows/cd.yml/badge.svg)](https://github.com/felunka/iot_ittt/actions/workflows/cd.yml)
+
 ## Docker setup
 
 The Docker compose in this repo sets up the whole application with all components. This includes a container with yarn and ruby for the rails application, a postgres database, and a mosquitto container as message broker.

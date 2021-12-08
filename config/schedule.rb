@@ -20,6 +20,6 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.minute do
-  rake 'rest_sensors:update_mesurements'
-  rake 'ittt_actions:check'
+  rake 'rest_sensors:update_mesurements', output: {error: 'error.log', standard: 'cron.log'}
+  rake 'ittt_actions:check', output: {error: 'error.log', standard: 'cron.log'}
 end

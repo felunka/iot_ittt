@@ -19,6 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
+set :job_template, ':job'
+
 every 1.minute do
   rake 'rest_sensors:update_mesurements', output: {error: 'error.log', standard: 'cron.log'}
   rake 'ittt_actions:check', output: {error: 'error.log', standard: 'cron.log'}

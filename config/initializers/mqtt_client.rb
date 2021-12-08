@@ -13,7 +13,7 @@ class MqttClient
     Connection.on_connack = proc { puts "[MQTT RAILS][INFO] Successfully Connected" }
   
     ### Connect to the broker server on port 1883 (Unencrypted mode)
-    Connection.connect('192.168.1.221', 1883)
+    Connection.connect(ENV['MQTT_BROKER_HOSTNAME'], 1883)
   
     ### Subscribe to a topic
     Connection.subscribe(['#', 2])

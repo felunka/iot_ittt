@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :job_template, ':job'
+set :job_template, "bash -l -c 'RAILS_MASTER_KEY=#{ENV['RAILS_MASTER_KEY']} :job'"
 
 every 1.minute do
   rake 'rest_sensors:update_mesurements', output: {error: 'error.log', standard: 'cron.log'}

@@ -2,7 +2,7 @@
 FROM ruby:2.7
 
 # Install node and yarn
-RUN apt-get update -qq && apt-get install -y nodejs npm yarn cron postgresql-client
+RUN apt-get update -qq && apt-get install -y nodejs npm yarn postgresql-client
 
 # Create work dir
 RUN mkdir /app
@@ -21,8 +21,6 @@ ADD . /app
 RUN bundle exec rake assets:precompile
 
 EXPOSE 3000
-
-RUN bundle exec whenever --update-crontab
 
 # Configure the main process to run when running the image
 CMD ["rails", "server", "-b", "0.0.0.0"]

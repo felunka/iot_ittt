@@ -10,13 +10,13 @@ class Ittt < ApplicationRecord
   validates :ittt_actions, presence: true
 
   def execute
-    ittt.update last_evaluated_at: Time.zone.now
-    if ittt.evaluate_conditions
-      ittt.ittt_actions.each do |action|
+    self.update last_evaluated_at: Time.zone.now
+    if evaluate_conditions
+      ittt_actions.each do |action|
         send_mqtt_message(action.topic, action.message)
       end
     else
-      ittt.ittt_actions.where(send_evaluation_output: true).each do |action|
+      ittt_actions.where(send_evaluation_output: true).each do |action|
         send_mqtt_message(action.topic, 'True')
       end
     end

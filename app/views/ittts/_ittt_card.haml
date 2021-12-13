@@ -3,6 +3,8 @@
     .card-body
       %h5.card-title
         = ittt.name
+      %p.card-text.ittt-last-updated
+        = I18n.l ittt.last_evaluated_at
 
       = link_to edit_ittt_path(ittt), class: 'card-link' do
         %i.fas.fa-edit

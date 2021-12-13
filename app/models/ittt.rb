@@ -13,11 +13,15 @@ class Ittt < ApplicationRecord
     self.update last_evaluated_at: Time.zone.now
     if evaluate_conditions
       ittt_actions.each do |action|
-        send_mqtt_message(action.topic, action.message)
+        if action.send_evaluation_output?
+          send_mqtt_message(action.topic, 'True')
+        else
+          send_mqtt_message(action.topic, action.message)
+        end
       end
     else
       ittt_actions.where(send_evaluation_output: true).each do |action|
-        send_mqtt_message(action.topic, 'True')
+        send_mqtt_message(action.topic, 'False')
       end
     end
   end

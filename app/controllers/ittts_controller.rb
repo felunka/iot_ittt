@@ -44,6 +44,7 @@ class ItttsController < ApplicationController
       :id,
       :name,
       :interval,
+      :trigger_on_sensor_update,
       ittt_conditions_attributes: [
         :id,
         :sensor_1_id,
@@ -55,6 +56,7 @@ class ItttsController < ApplicationController
       ittt_actions_attributes: [
         :id,
         :topic,
+        :send_evaluation_output,
         :message,
         :_destroy
       ]

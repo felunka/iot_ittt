@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_04_150009) do
+ActiveRecord::Schema.define(version: 2021_12_13_202218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_12_04_150009) do
     t.string "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "send_evaluation_output", default: false
     t.index ["ittt_id"], name: "index_ittt_actions_on_ittt_id"
   end
 
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_12_04_150009) do
     t.datetime "last_evaluated_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "trigger_on_sensor_update", default: false
   end
 
   create_table "sensor_measurements", force: :cascade do |t|

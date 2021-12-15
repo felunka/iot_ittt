@@ -18,6 +18,8 @@ Via the web interface you can create or change a sensor. A sensor has one data s
 
 Currently it is only possible to log int and float values.
 
+Live updates will be streamed via websocket to the frontend and will be visible in the overview of all sensors.
+
 ### MQTT sensors
 
 A MQTT sensor needs to have a topic. The application will then log all messages on that topic.
@@ -28,4 +30,5 @@ You can provide a URL and the application will issue a GET request at the interv
 
 ## ITTT
 
-ITTT (if this than that) have a set of conditions and actions. The actions will get triggered if all (AND) conditions are true.
+ITTT (if this than that) have a set of conditions and actions. To trigger a check of the ittt you can define an interval in minutes and/or trigger on updates on any sensors used in the conditions.
+The actions will get triggered if all (AND) conditions are true or if an action has the "Send evaluation output" option set. They will be triggered in the order visible in the frontend. The output can be statically defined as message or will send "True" or "False" depending on the result of the evaluation.

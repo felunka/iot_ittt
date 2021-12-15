@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root 'sensors#index'
 
   resources :sensors do
-    resources :sensor_measurements, only: [:index, :show] 
+    resources :sensor_measurements, only: [:index]
+    member do
+      delete 'destroy_measurements'
+    end
   end
   resources :ittts
 

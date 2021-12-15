@@ -2,8 +2,9 @@
   = line_chart @sensor_measurements.map{|m| [m.created_at, m.value]}.to_h
 
 .card.mb-3
-  %h5.card-header
+  %h5.card-header.d-flex.justify-content-between.align-items-center
     = "Measurement for #{@sensor.name}"
+    = button_to 'Delete', destroy_measurements_sensor_path(@sensor), class: 'btn btn-danger', method: :delete
   .table-responsive
     %table.table
       %tr

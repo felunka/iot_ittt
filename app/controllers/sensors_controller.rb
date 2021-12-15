@@ -36,4 +36,12 @@ class SensorsController < ApplicationController
     flash[:danger] = 'Sensor deleted'
     redirect_to action: 'index'
   end
+
+  def destroy_measurements
+    @sensor = Sensor.find_by(params.permit(:id))
+    @sensor.sensor_measurements.destroy_all
+    flash[:danger] = 'Measurements deleted'
+
+    redirect_to sensor_sensor_measurements_path(@sensor)
+  end
 end

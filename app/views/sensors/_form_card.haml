@@ -12,6 +12,7 @@
     = simple_form_for @sensor do |f|
       = f.input :name
       = f.input :sensor_type, collection: Sensor.sensor_types.symbolize_keys.keys, include_blank: false, include_hidden: false
+      = f.input :toleranz, hint: 'Values +/- the toleranz will not be logged as new values'
       = f.input :topic, hint: 'Only for MQTT'
       = f.input :url, hint: 'Only for REST'
       = f.input :interval, hint: 'Only for REST, in minutes'
